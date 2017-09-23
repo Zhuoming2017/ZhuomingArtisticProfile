@@ -6,7 +6,8 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()
-    image = models.ImageField(upload_to= 'static/media/', default = 'static/media/Firefox_wallpaper.png')
+    imagename = models.TextField(default = "bleh")
+    image = models.ImageField(upload_to= 'static/main/', default = '~/Firefox_wallpaper.png')
     created_date = models.DateTimeField(
         default=timezone.now)
     published_date = models.DateTimeField(
