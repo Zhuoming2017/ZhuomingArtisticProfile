@@ -1,4 +1,5 @@
 {% extends 'main/base.html' %}
+
 {% block content %}
     {% load static %}
     {% for post in posts %}
@@ -9,6 +10,7 @@
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <img class="resize1" src ="/static/main/{{ post.imagename }}" />
             <p>{{ post.text|linebreaksbr }}</p>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
         </div>
     {% endfor %}
-{% endblock %}
+{% endblock content %}
